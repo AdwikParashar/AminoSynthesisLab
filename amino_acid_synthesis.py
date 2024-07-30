@@ -2,7 +2,7 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 from rdkit.Chem import Draw
 
-# Define a function to display a molecule and save it to a file
+# Defining a function to display a molecule and save it to a file
 def display_and_save_molecule(mol, filename, title):
     if mol is not None:
         img = Draw.MolToImage(mol)
@@ -11,7 +11,7 @@ def display_and_save_molecule(mol, filename, title):
     else:
         print(f"Failed to create {title} molecule.")
 
-# Define the SMILES strings for some amino acids
+# Defining the SMILES strings for some amino acids
 amino_acids_smiles = {
     "glycine": "NCC(=O)O",
     "alanine": "CC(C(=O)O)N",
@@ -26,7 +26,7 @@ amino_acids = {name: Chem.MolFromSmiles(smiles) for name, smiles in amino_acids_
 for name, mol in amino_acids.items():
     display_and_save_molecule(mol, f"{name}.png", name.capitalize())
 
-# Define some chemical reactions using SMARTS strings
+# Defining some chemical reactions using SMARTS strings
 reactions = {
     "N-acetylation": AllChem.ReactionFromSmarts('[N:1]>>[N:1]C(=O)C'),
     "O-methylation": AllChem.ReactionFromSmarts('[OH:1]>>[O:1]C'),
